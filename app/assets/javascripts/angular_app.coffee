@@ -1,4 +1,4 @@
-flapperNews = angular.module('flapperNews', ['ui.router', 'templates'])
+flapperNews = angular.module('flapperNews', ['ui.router', 'templates', 'Devise'])
 
 .config [
   '$stateProvider'
@@ -15,13 +15,20 @@ flapperNews = angular.module('flapperNews', ['ui.router', 'templates'])
         promisePosts: [
           'posts'
           (posts) ->
-            return posts.getAll()
+            posts.getAll()
         ]
 
     .state 'posts',
       url: '/posts/{id}'
       templateUrl: 'posts/_posts.html'
       controller: 'PostsCtrl'
+      resolve:
+        post: [
+          '$stateParams'
+          'posts'
+          ($stateParams, posts) ->
+            posts.get($stateParams.id)
+        ]
 
     $urlRouterProvider.otherwise 'home'
 ]

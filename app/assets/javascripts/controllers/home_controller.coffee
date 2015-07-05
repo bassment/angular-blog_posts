@@ -4,7 +4,6 @@ angular.module('flapperNews')
   '$scope'
   'posts'
   ($scope, posts) ->
-    $scope.test = 'Hello world!'
     $scope.posts = posts.posts
 
     $scope.addPost = ->
@@ -18,5 +17,5 @@ angular.module('flapperNews')
       $scope.link = ''
 
     $scope.incrementUpvotes = (post) ->
-      post.upvotes += 1
+      posts.upvote(post)
 ]

@@ -11,6 +11,12 @@ flapperNews = angular.module('flapperNews', ['ui.router', 'templates'])
       url: '/home'
       templateUrl: 'home/_home.html'
       controller: 'MainCtrl'
+      resolve:
+        promisePosts: [
+          'posts'
+          (posts) ->
+            return posts.getAll()
+        ]
 
     .state 'posts',
       url: '/posts/{id}'

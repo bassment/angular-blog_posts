@@ -43,3 +43,5 @@ end
 
 gem 'angular-rails-templates'
 gem 'sprockets'
+gem 'responders'
+gem 'angular_rails_csrf'

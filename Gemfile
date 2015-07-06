@@ -42,7 +42,7 @@ group :development, :test do
 end
 
 gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
 gem 'sprockets'
 gem 'responders'
-gem 'angular_rails_csrf'
 gem 'devise'

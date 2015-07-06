@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150705230714) do
+ActiveRecord::Schema.define(version: 20150706004634) do
 
 # Could not dump table "comments" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20150705230714) do
     t.integer  "upvotes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

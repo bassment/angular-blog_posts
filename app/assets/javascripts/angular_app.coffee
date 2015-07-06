@@ -30,5 +30,15 @@ flapperNews = angular.module('flapperNews', ['ui.router', 'templates', 'Devise']
             posts.get($stateParams.id)
         ]
 
+    .state 'login',
+      url: '/login'
+      templateUrl: 'auth/_login.html'
+      controller: 'AuthCtrl'
+
+    .state 'register',
+      url: '/register'
+      templateUrl: 'auth/_register.html'
+      controller: 'AuthCtrl'
+
     $urlRouterProvider.otherwise 'home'
 ]
